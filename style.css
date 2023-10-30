@@ -1,0 +1,182 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+#menu{
+    background-color: rgb(10, 10, 10);
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+
+}
+
+#menu-items {
+    margin: clamp(3rem, 24vw, 48rem);
+    position: relative;
+    z-index: 3;
+}
+
+.menu-item{
+    display: block;
+    color:white;
+    text-decoration: none;
+
+    font-size: clamp(3rem, 8vw, 8rem);
+    padding: clamp(.25rem, .5rem, 1rem);
+    transition: opacity 400ms ease, font-family 500ms ease;
+
+}
+
+#menu-items:hover > .menu-item{
+    opacity: .3;
+}
+
+#menu-items:hover > .menu-item:hover{
+    opacity: 1;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* dotts */
+#bg-pattren{
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(rgba(255,255,255,0.1) 9%, transparent 9% );
+
+    background-size: 12vmin 12vmin;
+    background-position: 0% 0%;
+
+    
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: all 800ms ease;
+}
+
+#bg-image{
+    background: url("https://images.unsplash.com/photo-1613858749153-1736c01ac789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3ODUzNzI4NA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080")   no-repeat;
+
+    background-size: cover;
+    background-position: center;
+    background-size: 110%;
+    width: 100vw;
+    height: 100vh;
+
+    opacity: .5;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    transition: all 800ms ease;
+}
+#bg-image::after{
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#menu-items:hover ~ #bg-pattren{
+    background-size: 11vmin 11vmin;
+}
+#menu-items:hover ~ #bg-image{
+    background-size: 100%;
+}
+
+
+
+#menu[data-active-index="0"] > #bg-pattren{
+    background-position: 0% -25%;
+}
+
+#menu[data-active-index="1"] > #bg-pattren{
+    background-position: 0% -50%;
+}
+
+#menu[data-active-index="2"] > #bg-pattren{
+    background-position: 0% -75%;
+}
+
+#menu[data-active-index="3"] > #bg-pattren{
+    background-position: 0% -100%;
+}
+
+/*image part*/
+#menu[data-active-index="0"] > #bg-image{
+    background-position: center 45%;
+}
+
+#menu[data-active-index="1"] > #bg-image{
+    background-position: center 55%;
+}
+
+#menu[data-active-index="2"] > #bg-image{
+    background-position: center 65%;
+}
+
+#menu[data-active-index="3"] > #bg-image{
+    background-position: center 75%;
+}
+
+
+
+
+/* ------ PArallex ------ */
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+#images{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+    position: relative;
+}
+
+#image-track{
+    display: flex;
+    gap: 2vmin;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    user-select: none; /*prevent a img or text to be selected and dragged*/
+}
+
+.image{
+    aspect-ratio: 1 / 16;
+    width: 34vmin;
+    height: 60vmin;
+    object-fit: cover;
+    object-position: 100% center;
+    border-radius: .25rem;
+}
+
+img{
+    height: 100px;
+}
